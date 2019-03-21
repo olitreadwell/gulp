@@ -20,7 +20,6 @@ steps:
     COVERALLS_GIT_COMMIT: $(Build.SourceVersion)
     CI_PULL_REQUEST: $(System.PullRequest.PullRequestNumber)
   displayName: Run coveralls
-  condition: eq(variables['run_coveralls'], true)
 
 - script: npm test
   displayName: Run tests
