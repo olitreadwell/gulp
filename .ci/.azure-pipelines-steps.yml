@@ -15,6 +15,11 @@ steps:
   env:
     COVERALLS_SERVICE_NAME: Azure Pipelines
     COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN_SECRET)
+    CI_NAME: Azure Pipelines
+    CI_BUILD_NUMBER: $(Build.BuildNumber)
+    CI_BUILD_URL: $(Build.BuildUri)
+    CI_BRANCH: $(Build.SourceBranchName)
+    CI_PULL_REQUEST: $(System.PullRequest.PullRequestNumber)
   displayName: Run coveralls
   condition: eq(variables['run_coveralls'], true)
 
