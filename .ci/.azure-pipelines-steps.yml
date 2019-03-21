@@ -11,7 +11,11 @@ steps:
 - script: npm install
   displayName: npm install
 
+- script: npm test
+  displayName: Run tests
+
 - script: npm run coveralls
+  displayName: Run coveralls
   env:
     COVERALLS_SERVICE_NAME: Azure Pipelines
     COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN_SECRET)
@@ -19,11 +23,6 @@ steps:
     COVERALLS_GIT_BRANCH: $(Build.SourceBranchName)
     COVERALLS_GIT_COMMIT: $(Build.SourceVersion)
     CI_PULL_REQUEST: $(System.PullRequest.PullRequestNumber)
-  displayName: Run coveralls
-
-- script: npm test
-  displayName: Run tests
-  condition: ne(variables['run_coveralls'], true)
 
 - script: npm run azure-pipelines
   displayName: Write tests to xml
