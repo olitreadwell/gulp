@@ -19,7 +19,7 @@ steps:
   env:
     COVERALLS_SERVICE_NAME: Azure Pipelines
     COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN_SECRET)
-    COVERALLS_SERVICE_JOB_ID: $(Build.BuildNumber)
+    COVERALLS_SERVICE_JOB_ID: $(Build.BuildId)
     COVERALLS_GIT_BRANCH: $(Build.SourceBranchName)
     COVERALLS_GIT_COMMIT: $(Build.SourceVersion)
     COVERALLS_PARALLEL: true
