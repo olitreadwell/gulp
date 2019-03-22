@@ -7,8 +7,6 @@ jobs:
     displayName: Run Tests on Linux
     pool:
       vmImage: "Ubuntu 16.04"
-    variables:
-      run_coveralls: true
     strategy:
       matrix:
         Node_v10:
@@ -73,6 +71,8 @@ jobs:
 
   - job: Notify_Coveralls
     displayName: Notify Coveralls that the parallel report is done
+    pool:
+      vmImage: "Ubuntu 16.04"
     dependsOn:
       - Test_Linux
       - Test_Windows
