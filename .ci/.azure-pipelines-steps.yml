@@ -26,6 +26,7 @@ steps:
     # Overwrite the GitLab Service Name
     COVERALLS_SERVICE_NAME: Azure Pipelines
     COVERALLS_REPO_TOKEN: $(COVERALLS_REPO_TOKEN_SECRET)
+    COVERALLS_PARALLEL: true
     CI_PULL_REQUEST: $(System.PullRequest.PullRequestNumber)
 
 - script: npm run azure-pipelines
