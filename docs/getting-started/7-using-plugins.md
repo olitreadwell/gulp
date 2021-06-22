@@ -37,7 +37,7 @@ const { rollup } = require('rollup');
 
 // Rollup's promise API works great in an `async` task
 exports.default = async function() {
-  const bundle = await rollup.rollup({
+  const bundle = await rollup({
     input: 'src/index.js'
   });
 
@@ -101,7 +101,7 @@ exports.default = function() {
     .pipe(through2.obj(function(file, _, cb) {
       if (file.isBuffer()) {
         const code = uglify.minify(file.contents.toString())
-        file.contents = Buffer.from(code)
+        file.contents = Buffer.from(code.code)
       }
       cb(null, file);
     }))
